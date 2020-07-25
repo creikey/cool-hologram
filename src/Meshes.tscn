@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Meshes.glb" type="PackedScene" id=1]
+[ext_resource path="res://Dashes.material" type="Material" id=2]
+[ext_resource path="res://InnerArrows.material" type="Material" id=3]
+[ext_resource path="res://InBetweenBlue.material" type="Material" id=4]
+[ext_resource path="res://StarField.material" type="Material" id=5]
+[ext_resource path="res://Meshes.gd" type="Script" id=6]
+[ext_resource path="res://Star.material" type="Material" id=7]
+[ext_resource path="res://SoccerBall.material" type="Material" id=8]
+[ext_resource path="res://OrbitingPlanet.material" type="Material" id=9]
+
+[sub_resource type="SphereMesh" id=3]
+material = ExtResource( 7 )
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.905775, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="Meshes" instance=ExtResource( 1 )]
+script = ExtResource( 6 )
+
+[node name="InnerSoccerBall" parent="." index="0"]
+material_override = ExtResource( 8 )
+
+[node name="Circle" parent="." index="1"]
+material_override = ExtResource( 5 )
+
+[node name="DashedLine" parent="." index="2"]
+material_override = ExtResource( 2 )
+
+[node name="InnerArrows" parent="." index="4"]
+material_override = ExtResource( 3 )
+
+[node name="InBetweenBlue" parent="." index="5"]
+material_override = ExtResource( 4 )
+
+[node name="OuterDashes" parent="." index="6"]
+material_override = ExtResource( 2 )
+
+[node name="StarCPUParticles" type="CPUParticles" parent="." index="8"]
+amount = 20
+lifetime = 99999.0
+preprocess = 50.0
+speed_scale = 0.12
+explosiveness = 1.0
+randomness = 0.53
+mesh = SubResource( 3 )
+emission_shape = 3
+emission_points = PoolVector3Array( -2.4, 0, 0, 0, 0, 2.4, 2.4, 0, 0, 0, 0, -2.4 )
+direction = Vector3( 0, 1, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 2.0
+linear_accel_random = 0.42
+radial_accel = -6.45
+radial_accel_random = 0.39
+tangential_accel = 64.52
+scale_amount = 0.03
+color_ramp = SubResource( 4 )
+
+[node name="OrbitingPlanet" parent="OrbitPivotPoint" index="0"]
+transform = Transform( 0.78455, -0.619031, 0.035796, 0.546973, 0.718106, 0.430284, -0.292064, -0.318, 0.901984, -1.38498, 0, 0 )
+material_override = ExtResource( 9 )
