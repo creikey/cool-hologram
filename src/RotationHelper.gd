@@ -12,6 +12,7 @@ var target_zoom: float = 1.0
 #	
 
 func _input(event):
+#	print(event)
 	if event.is_action_pressed("zoom_in"):
 		target_zoom -= MOUSE_ZOOM_INCREMENT
 	elif event.is_action_pressed("zoom_out"):
@@ -24,16 +25,20 @@ func _input(event):
 #		dragging = false
 
 func _unhandled_input(event):
-	if event.is_action_pressed("interact"):
+	if _is_start_of_drag(event, true) or event.is_action_pressed("interact"):
 		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 		dragging = true
-	elif event is InputEventMouseMotion and dragging:
+	elif (event is InputEventMouseMotion or event is InputEventScreenDrag) and dragging:
+#		print(event.relative)
 		target_rotation.x -= event.relative.y*MOUSE_DRAG_SPEED
 		target_rotation.y -= event.relative.x*MOUSE_DRAG_SPEED
-	elif event.is_action_released("interact"):
+	elif _is_start_of_drag(event, false) or event.is_action_released("interact"):
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 		dragging = false
 	
+
+func _is_start_of_drag(event: InputEvent, pressed: bool):
+	return (event is InputEventScreenTouch and event.pressed == pressed and event.index == 0)
 
 func _process(delta):
 	if Input.is_action_pressed("zoom_in"):
