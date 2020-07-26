@@ -10,10 +10,10 @@
 [ext_resource path="res://SoccerBall.material" type="Material" id=8]
 [ext_resource path="res://OrbitingPlanet.material" type="Material" id=9]
 
-[sub_resource type="SphereMesh" id=3]
+[sub_resource type="SphereMesh" id=1]
 material = ExtResource( 7 )
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0, 0.905775, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
@@ -45,7 +45,7 @@ preprocess = 50.0
 speed_scale = 0.12
 explosiveness = 1.0
 randomness = 0.53
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 emission_shape = 3
 emission_points = PoolVector3Array( -2.4, 0, 0, 0, 0, 2.4, 2.4, 0, 0, 0, 0, -2.4 )
 direction = Vector3( 0, 1, 0 )
@@ -57,7 +57,7 @@ radial_accel = -6.45
 radial_accel_random = 0.39
 tangential_accel = 64.52
 scale_amount = 0.03
-color_ramp = SubResource( 4 )
+color_ramp = SubResource( 2 )
 
 [node name="OrbitingPlanet" parent="OrbitPivotPoint" index="0"]
 transform = Transform( 0.78455, -0.619031, 0.035796, 0.546973, 0.718106, 0.430284, -0.292064, -0.318, 0.901984, -1.38498, 0, 0 )

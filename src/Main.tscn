@@ -64,6 +64,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46514, 0.489151, 1.95101 )
 [node name="SelectionSphere7" parent="Meshes/SpherePaths" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46514, -0.396076, -0.373612 )
 
+[node name="SelectionSphere8" parent="Meshes/SpherePaths" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46514, -1.07929, 1.80611 )
+
+[node name="SelectionSphere9" parent="Meshes/SpherePaths" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.671485, -1.24137, 2.32324 )
+
 [node name="RotationHelper" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.813416, 0.581683, 0, -0.581683, 0.813416, 0, 0, 0 )
 script = ExtResource( 2 )
@@ -92,7 +98,7 @@ __meta__ = {
 
 [node name="CreditsLabel" type="Label" parent="UI/V"]
 modulate = Color( 1, 1, 1, 0.5 )
-margin_right = 660.0
+margin_right = 648.0
 margin_bottom = 127.0
 text = "Design by Mike Murdock
 Created by Cameron Reikes ( creikey ) in about 4 hours
@@ -105,7 +111,7 @@ __meta__ = {
 
 [node name="HideTextButton" type="Button" parent="UI/V"]
 margin_top = 131.0
-margin_right = 660.0
+margin_right = 648.0
 margin_bottom = 154.0
 focus_mode = 0
 size_flags_horizontal = 3

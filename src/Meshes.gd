@@ -1,6 +1,7 @@
 extends Spatial
 
 func _process(delta):
+	$InnerSoccerBall.rotation.y -= delta/5.0
 	$InnerArrows.rotation.y += delta/3.0
 	$DashedLine.rotation.y -= delta/10.0
 	$OuterDashes.rotation.y += delta/15.0

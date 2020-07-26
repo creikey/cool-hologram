@@ -4,18 +4,25 @@ extends KinematicBody
 const unselected: Material = preload("res://UnSelectedSphere.material")
 const selected: Material = preload("res://SelectedSphere.material")
 const first_words: Array = [
+	"Aka",
+	"Rich",
+	"Crystal",
+	"Creikey",
+	"Hayd",
+	"Jeff",
+	"Mark",
+	"Fate",
+	"Dave",
+	"Bleach",
+]
+const second_words: Array = [
+	"Omega",
+	"Prime",
 	"Alpha",
 	"Beta",
 	"Delta",
 	"Epsilon",
 	"Zerg",
-	"Murhy",
-	"Bravo",
-	"Charlie",
-]
-const second_words: Array = [
-	"Omega",
-	"Prime",
 ]
 
 var _dragging: bool = false
@@ -27,7 +34,7 @@ var _mouse_inside: bool = false
 
 func _ready():
 	randomize()
-	var have_second_word: bool = randf() < 0.3
+	var have_second_word: bool = randf() < 0.8
 	_label.text = str(first_words[randi()%first_words.size()], " ")
 	if have_second_word:
 		_label.text += str(second_words[randi()%second_words.size()], " ")
