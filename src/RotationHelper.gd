@@ -71,6 +71,14 @@ func _process(delta):
 		target_zoom -= MOUSE_ZOOM_INCREMENT
 	if Input.is_action_pressed("zoom_out"):
 		target_zoom += MOUSE_ZOOM_INCREMENT
+	if target_rotation.distance_to(rotation) > 0.1:
+		var strm: AudioStreamSample = $PanningLoop.stream
+		strm.loop_mode = AudioStreamSample.LOOP_PING_PONG
+		if not $PanningLoop.playing:
+			$PanningLoop.play()
+	elif $PanningLoop.playing:
+		var strm: AudioStreamSample = $PanningLoop.stream
+		strm.loop_mode = AudioStreamSample.LOOP_DISABLED
 	rotation = lerp(rotation, target_rotation, rotation_smooth_factor)
 	scale.x = lerp(scale.x, target_zoom, 0.2)
 	scale.y = scale.x

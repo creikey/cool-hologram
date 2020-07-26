@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/move-cursor-2.wav-13f30b10687e13209d03a85d598be24b.sample"
+
+[deps]
+
+source_file="res://PB - Sci-Fi UI Free SFX/move-cursor-2.wav"
+dest_files=[ "res://.import/move-cursor-2.wav-13f30b10687e13209d03a85d598be24b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

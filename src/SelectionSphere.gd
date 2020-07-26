@@ -40,6 +40,7 @@ func _process(delta):
 		translation.y += sin(_time*0.5 + translation.x + translation.z)*0.005
 
 func _on_SelectionSphere_mouse_entered():
+	$HoverPlayer.play()
 	_mouse_inside = true
 	_mesh.material_override = selected
 
