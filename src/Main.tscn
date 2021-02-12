@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Meshes.tscn" type="PackedScene" id=1]
 [ext_resource path="res://RotationHelper.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://UI.gd" type="Script" id=7]
 [ext_resource path="res://theme.tres" type="Theme" id=8]
 [ext_resource path="res://PB - Sci-Fi UI Free SFX/move-cursor-2.wav" type="AudioStream" id=9]
+[ext_resource path="res://custom-photos/cat2.jpg" type="Texture" id=10]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -45,30 +46,21 @@ script = ExtResource( 4 )
 
 [node name="SelectionSphere" parent="Meshes/SpherePaths" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.350858, 1.11938 )
+texture = ExtResource( 10 )
+display_text = "Sphere 1"
 
 [node name="SelectionSphere2" parent="Meshes/SpherePaths" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41295, -0.350858, 1.11938 )
+display_text = "Sphere 2"
 
 [node name="SelectionSphere3" parent="Meshes/SpherePaths" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41295, 0.500274, -1.59608 )
+texture = ExtResource( 10 )
+display_text = "I am a different picture"
 
 [node name="SelectionSphere4" parent="Meshes/SpherePaths" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66735, 0.500274, -1.59608 )
-
-[node name="SelectionSphere5" parent="Meshes/SpherePaths" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66735, 1.78357, -1.19385 )
-
-[node name="SelectionSphere6" parent="Meshes/SpherePaths" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46514, 0.489151, 1.95101 )
-
-[node name="SelectionSphere7" parent="Meshes/SpherePaths" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46514, -0.396076, -0.373612 )
-
-[node name="SelectionSphere8" parent="Meshes/SpherePaths" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46514, -1.07929, 1.80611 )
-
-[node name="SelectionSphere9" parent="Meshes/SpherePaths" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.671485, -1.24137, 2.32324 )
+display_text = "Sphere 4"
 
 [node name="RotationHelper" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.813416, 0.581683, 0, -0.581683, 0.813416, 0, 0, 0 )

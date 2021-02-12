@@ -1,47 +1,40 @@
+tool
 extends KinematicBody
 
 
 const unselected: Material = preload("res://UnSelectedSphere.material")
 const selected: Material = preload("res://SelectedSphere.material")
-const first_words: Array = [
-	"Aka",
-	"Rich",
-	"Crystal",
-	"Creikey",
-	"Hayd",
-	"Jeff",
-	"Mark",
-	"Fate",
-	"Dave",
-	"Bleach",
-]
-const second_words: Array = [
-	"Omega",
-	"Prime",
-	"Alpha",
-	"Beta",
-	"Delta",
-	"Epsilon",
-	"Zerg",
-]
+
+export var texture: Texture setget set_texture
+export var display_text: String = "Sample Text" setget set_display_text
 
 var _dragging: bool = false
 var _time: float = 0.0
 var _set_for_mobile: bool = false
 onready var _label: Label = $LabelViewport/CanvasLayer/Label
+onready var _image_viewport: Viewport = $ImageViewport
 onready var _mesh: MeshInstance = $MeshInstance
 var _mouse_inside: bool = false
 
+func set_texture(new_texture: Texture):
+	texture = new_texture
+	if _image_viewport != null:
+		_image_viewport.get_node("CustomImageLayer/MarginContainer/Texture").texture = texture
+
+func set_display_text(new_display_text: String):
+	display_text = new_display_text
+	if _label != null:
+		_label.text = display_text
+
 func _ready():
-	randomize()
-	var have_second_word: bool = randf() < 0.8
-	_label.text = str(first_words[randi()%first_words.size()], " ")
-	if have_second_word:
-		_label.text += str(second_words[randi()%second_words.size()], " ")
-	_label.text += str(randi()%9 + 1)
+	self.display_text = display_text
+	self.texture = texture
 	_mesh.material_override = unselected
 
 func _process(delta):
+	if Engine.editor_hint:
+		set_process(false)
+		return
 	_time += delta
 	if not _dragging:
 		translation.y += sin(_time*0.5 + translation.x + translation.z)*0.005
@@ -56,6 +49,9 @@ func _on_SelectionSphere_mouse_exited():
 	_mesh.material_override = unselected
 
 func _input(event):
+	if Engine.editor_hint:
+		set_process_input(false)
+		return
 	if not _set_for_mobile and event is InputEventScreenDrag: # on mobile
 		_set_for_mobile = true
 		$CollisionShape.shape.radius = 0.5
